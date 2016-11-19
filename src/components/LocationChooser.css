@@ -1,0 +1,41 @@
+.LocationChooser {
+	height: 6rem;
+	background-color: #004;
+}
+
+.LocationChooser h1 {
+	width: 100%;
+	height: 100%;
+	font-size: 4rem;
+	color: #f9f3e0;
+}
+
+.LocationChooser h1 {
+	background-color: #016;
+}
+
+.LocationChooser ul {
+	position: absolute;
+	width: 100%;
+	top: 6rem;
+	border-radius : 0rem 0rem .5rem .5rem;
+	box-shadow: -0.075rem 0.075rem 0.05rem #444444;;
+}
+
+.LocationChooser li {
+	font-size: 4rem;
+	background-color: #004;
+}
+
+.LocationChooser li:nth-child(even) {
+	background-color: #005;
+}
+
+.LocationChooser li:last-child {
+	border-radius : 0rem 0rem .5rem .5rem;
+}
+
+.LocationChooser li {
+	background-color: #016;
+}
+

@@ -1,0 +1,8 @@
+{"cod":"200","calctime":0.1042,"cnt":4,"list":
+	[
+	{"id":2965140,"name":"Cork","coord":{"lon":-8.47061,"lat":51.897968},"main":{"temp":2,"pressure":993,"temp_min":2,"temp_max":2,"humidity":100},"dt":1479420798,"wind":{"speed":6.7,"deg":250},"clouds":{"all":40},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03n"}]},
+	{"id":2964574,"name":"Dublin","coord":{"lon":-6.26719,"lat":53.34399},"main":{"temp":1.42,"pressure":988,"temp_min":1,"temp_max":2,"humidity":100},"dt":1479420628,"wind":{"speed":9.8,"deg":240},"clouds":{"all":20},"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"02n"}]},
+	{"id":2643741,"name":"City of London","coord":{"lon":-0.09184,"lat":51.512791},"main":{"temp":6.1,"pressure":991,"humidity":86,"temp_min":5,"temp_max":7},"dt":1479420796,"wind":{"speed":5.7,"deg":200},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01n"}]},
+	{"id":2657832,"name":"Aberdeen","coord":{"lon":-2.09814,"lat":57.143688},"main":{"temp":-1,"pressure":982,"humidity":92,"temp_min":-1,"temp_max":-1},"dt":1479420435,"wind":{"speed":2.6,"deg":240,"var_beg":180,"var_end":270},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01n"}]}
+	]
+}

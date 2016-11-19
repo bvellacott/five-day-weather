@@ -1,0 +1,5 @@
+// 59.9, 1.77 - 59.4,  - 83     - ?bbox=-10.5,49.9,1.77,59.4,83&cluster=yes&APPID=ef9d9ffffeae1c3288d5a9dee220f11c
+
+// http://api.openweathermap.org/data/2.5/forecast?q=London,gb&mode=json&APPID=ef9d9ffffeae1c3288d5a9dee220f11c
+
+// http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}

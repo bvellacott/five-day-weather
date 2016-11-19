@@ -1,0 +1,31 @@
+.WeatherCard {
+	background-color : #59f;
+}
+
+.WeatherCard:nth-child(even) {
+	background-color : #48e;
+}
+
+.WeatherCard h1 {
+	font-size: 4rem;
+	display: inline;
+}
+
+.WeatherCard h2 {
+	font-size: 3.5rem;
+	display: inline;
+}
+
+.WeatherCard h3 {
+	font-size: .85rem;
+}
+
+.WeatherCard img {
+	height: 4rem;
+	vertical-align: middle;
+	display: inline;
+}
+
+.WeatherCard li {
+	display: inline-block;
+}
