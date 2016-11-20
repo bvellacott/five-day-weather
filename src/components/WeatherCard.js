@@ -3,26 +3,23 @@ import moment from 'moment';
 import icons from '../lib/icons.js';
 import './WeatherCard.css';
 
-class Day extends Component {
-  constructor(props) {
-    super(props);
-    this.m = moment(props.date*1000);
-  }
-
-  render() {
-    return <h2>{this.m.format('dddd')}</h2>;
-  }
+function Day(props) {
+  return <h2>{moment(props.date*1000).format('dddd')}</h2>;
 }
 
-class FromNow extends Component {
-  constructor(props) {
-    super(props);
-    this.m = moment(props.date*1000);
-  }
+function Time(props) {
+  return <h3>{moment(props.date*1000).format('LT')}</h3>;
+}
 
-  render() {
-    return <h3>{this.m.format('LT')}</h3>;
-  }
+function Weather(props) {
+  const date = props.data.dt;
+  const weather = props.data.weather[0];
+  return (
+    <div>
+      <Time date={date} />
+      <img src={ icons[weather.icon]} alt={weather.description }/>
+    </div>
+  );
 }
 
 function WeatherList(props) {
@@ -33,24 +30,13 @@ function WeatherList(props) {
   );
 }
 
-function Weather(props) {
-  const date = props.data.dt;
-  const weather = props.data.weather[0];
-  return (
-    <div>
-      <FromNow date={date} />
-      <img src={ icons[weather.icon]} alt={weather.description }/>
-    </div>
-  );
-}
-
 class WeatherCard extends Component {
   render() {
     return (
-      <li className="WeatherCard">
+      <div className="WeatherCard">
         <Day date={this.props.list[0].dt}/>
         <WeatherList list={this.props.list}/>
-      </li>
+      </div>
     );
   }
 }

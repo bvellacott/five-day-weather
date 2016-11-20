@@ -1,5 +1,4 @@
 .LocationChooser {
-	height: 6rem;
 	background-color: #004;
 }
 
@@ -15,9 +14,8 @@
 }
 
 .LocationChooser ul {
-	position: absolute;
+	position: relative;
 	width: 100%;
-	top: 6rem;
 	border-radius : 0rem 0rem .5rem .5rem;
 	box-shadow: -0.075rem 0.075rem 0.05rem #444444;;
 }

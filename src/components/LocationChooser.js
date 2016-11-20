@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './LocationChooser.css';
 
-var results = ['London', 'Dublin', 'Edinburgh', 'Manchester', 'Liverpool', 'Glasgow', 'Newcastle'];
-
 function Title(props) {
   return <h1 className={props.searching} onClick={props.setSearching} >{props.location}</h1>;
 }
@@ -28,8 +26,7 @@ class LocationChooser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    	location: props.defaultChoice,
-    	searching: false
+   		searching: false
     };
 
     this.setLocation = this.setLocation.bind(this);
@@ -37,21 +34,22 @@ class LocationChooser extends Component {
   }
 
   setLocation(newLoc) {
-  	this.setState({ location: newLoc, searching: false })
+  	this.props.setLocation(newLoc);
+  	this.setState({ searching: false });
   }
 
   setSearching() {
-  	this.setState({ searching: true })
+  	this.setState({ searching: true });
   }
 
   render() {
     return (
     	<div className="LocationChooser">
-    		<Title location={this.state.location} searching={this.state.searching} setSearching={this.setSearching}/>
+    		<Title location={this.props.location} searching={this.state.searching} setSearching={this.setSearching}/>
 				{
 					this.state.searching ? 
 					<ul>
-						{results.map( r => <li key={r}><Result value={r} setLocation={this.setLocation} /></li> )}
+						{this.props.options.map( r => <li key={r}><Result value={r} setLocation={this.setLocation} /></li> )}
 					</ul>
 					: null
 				}

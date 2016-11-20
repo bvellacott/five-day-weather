@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import WeatherCard from './WeatherCard';
 
-import friday from '../../londonFridayWeather.json';
-import saturday from '../../londonSaturdayWeather.json';
+// import friday from '../../londonFridayWeather.json';
+// import saturday from '../../londonSaturdayWeather.json';
 
 
 class WeatherDays extends Component {
@@ -13,11 +13,7 @@ class WeatherDays extends Component {
   render() {
     return (
       <ul className="App">
-        <WeatherCard list={friday.list}/>
-        <WeatherCard list={saturday.list}/>
-        <WeatherCard list={friday.list}/>
-        <WeatherCard list={saturday.list}/>
-        <WeatherCard list={friday.list}/>
+        { this.props.lists.map(list => <li key={list[0].dt}><WeatherCard list={list}/></li>)}
       </ul>
     );
   }
