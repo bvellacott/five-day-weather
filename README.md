@@ -9,7 +9,7 @@ npm install -g create-react-app
 
 Then to build it do: 
 ```
-npm run build'
+npm run build
 ```
 
 To run in dev mode with live reload do: 
