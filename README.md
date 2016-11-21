@@ -21,3 +21,6 @@ And to run the tests do:
 ```
 npm test
 ```
+
+## The application is hosted at
+http://five-day-weather-dev.eu-west-1.elasticbeanstalk.com/
