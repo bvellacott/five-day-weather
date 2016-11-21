@@ -1,10 +1,10 @@
 import React from 'react';
 import WeatherCard from './WeatherCard';
 
-function WeatherDays() {
+function WeatherDays(props) {
   return (
     <ul className="App">
-      { this.props.lists.map(list => <li key={list[0].dt}><WeatherCard list={list}/></li>)}
+      { props.lists.map(list => <li key={list[0].dt}><WeatherCard list={list}/></li>)}
     </ul>
   );
 }
