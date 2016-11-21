@@ -1,0 +1,49 @@
+exports[`test Location set 1`] = `
+<div
+  className="LocationChooser">
+  <h1
+    onClick={[Function]}>
+    a
+  </h1>
+</div>
+`;
+
+exports[`test Location set 2`] = `
+<div
+  className="LocationChooser">
+  <h1
+    onClick={[Function]}>
+    a
+  </h1>
+  <ul>
+    <li>
+      <span
+        onClick={[Function]}>
+        a
+      </span>
+    </li>
+    <li>
+      <span
+        onClick={[Function]}>
+        b
+      </span>
+    </li>
+    <li>
+      <span
+        onClick={[Function]}>
+        c
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test Location set 3`] = `
+<div
+  className="LocationChooser">
+  <h1
+    onClick={[Function]}>
+    a
+  </h1>
+</div>
+`;

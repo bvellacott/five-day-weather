@@ -1,0 +1,32 @@
+exports[`test Display data 1`] = `
+<div
+  className="WeatherCard">
+  <h2>
+    Friday
+  </h2>
+  <ul>
+    <li
+      className="weather">
+      <div>
+        <h3>
+          3:00 AM
+        </h3>
+        <img
+          alt="light rain"
+          src="test-file-stub" />
+      </div>
+    </li>
+    <li
+      className="weather">
+      <div>
+        <h3>
+          6:00 AM
+        </h3>
+        <img
+          alt="clear sky"
+          src="test-file-stub" />
+      </div>
+    </li>
+  </ul>
+</div>
+`;

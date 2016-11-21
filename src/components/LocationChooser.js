@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './LocationChooser.css';
 
 function Title(props) {
-  return <h1 className={props.searching} onClick={props.setSearching} >{props.location}</h1>;
+  return <h1 onClick={props.setSearching} >{props.location}</h1>;
 }
 
 class Result extends Component {
@@ -11,8 +11,8 @@ class Result extends Component {
     this.setLocation = this.setLocation.bind(this);
 	}
 
-	setLocation(e) {
-		this.props.setLocation(e.target.textContent);
+	setLocation() {
+		this.props.setLocation(this.props.value);
 	}
 
 	render() {

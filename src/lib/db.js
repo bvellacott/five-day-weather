@@ -20,6 +20,8 @@ const secondsInADay = 60*60*25;
 
 function getWeatherUrl(location) {
 	var coord = coordinates[location];
+	if(!coord)
+		throw new Error('No such location: ' + location);
 	return urlTemplate.replace('{lat}', coord.lat).replace('{lon}', coord.lon) + 
 		'&APPID=ef9d9ffffeae1c3288d5a9dee220f11c';
 }
@@ -28,7 +30,11 @@ function createDb() {
 	return {
 		// exposed this method so that I can replace it when running tests
 		_getWeatherData(location) {
-			var url = getWeatherUrl(location);
+			try {
+				var url = getWeatherUrl(location);
+			} catch(err) {
+				return new Promise((resolve, reject) => { reject(err); });
+			}
 			return new Promise((resolve, reject) => {
 				get(url, (err, data) => {
 					if(err) { reject(err); }
@@ -64,7 +70,6 @@ function createDb() {
 		},
 
 		getDayLists() {
-			var d = this.getData();
 			return this.getData().then((data, err) => {
 				if(err)
 					return new Promise((resolve, reject) => { reject(err); });
@@ -75,11 +80,10 @@ function createDb() {
 				var dayCount = 0;
 
 				// Sort the list of weather data into batches by day -> lists
+				const byDayName = datum => { return day === moment(datum.dt*1000).format('dddd'); }
 				do {
 					day = moment((data.list[0].dt + dayCount * secondsInADay) * 1000).format('dddd');
-					dayList = data.list.filter(datum => {
-						return day === moment(datum.dt*1000).format('dddd');
-					});
+					dayList = data.list.filter(byDayName);
 					if(dayList.length)
 						lists.push(dayList);
 					dayCount++;

@@ -1,19 +1,6 @@
 import createDb from './db';
+import createDbWithMocks from './createDbWithMocks.test.js';
 
-function createDbWithMocks(mocks) {
-	const db = createDb();
-
-	db._getWeatherData = function(location) {
-		var data = mocks[location];
-		if(data)
-			return new Promise(resolve => { resolve(data); });
-		return new Promise((resolve, reject) => { reject('No such location: ' + location); });
-	};
-
-	db.getLocations = function() { return Object.keys(mocks); };
-
-	return db;
-}
 
 it('setLocation', () => {
 	const db = createDb();

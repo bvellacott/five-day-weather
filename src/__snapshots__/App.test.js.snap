@@ -1,0 +1,58 @@
+exports[`test App scenario 1`] = `
+<ul
+  className="App">
+  <div
+    className="LocationChooser">
+    <h1
+      onClick={[Function]}>
+      
+    </h1>
+  </div>
+  <ul
+    className="App" />
+</ul>
+`;
+
+exports[`test App scenario 2`] = `
+<ul
+  className="App">
+  <div
+    className="LocationChooser">
+    <h1
+      onClick={[Function]}>
+      
+    </h1>
+    <ul>
+      <li>
+        <span
+          onClick={[Function]}>
+          location1
+        </span>
+      </li>
+      <li>
+        <span
+          onClick={[Function]}>
+          location2
+        </span>
+      </li>
+    </ul>
+  </div>
+  <ul
+    className="App" />
+</ul>
+`;
+
+exports[`test App scenario 3`] = `
+<ul
+  className="App">
+  <div
+    className="LocationChooser">
+    <h1
+      onClick={[Function]}>
+      Please wait...
+    </h1>
+  </div>
+  <ul
+    className="App" />
+</ul>
+`;
