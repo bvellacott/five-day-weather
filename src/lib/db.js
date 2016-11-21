@@ -16,32 +16,33 @@ const coordinates =  {
 
 const urlTemplate = 'http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}';
 
+const secondsInADay = 60*60*25;
+
 function getWeatherUrl(location) {
 	var coord = coordinates[location];
 	return urlTemplate.replace('{lat}', coord.lat).replace('{lon}', coord.lon) + 
 		'&APPID=ef9d9ffffeae1c3288d5a9dee220f11c';
 }
 
-function getWeatherData(location) {
-	var url = getWeatherUrl(location);
-	return new Promise((resolve, reject) => {
-		get(url, (err, data) => {
-			if(err) { reject(err); }
-			else { resolve(data); }
-		});
-	});
-}
-
-const secondsInADay = 60*60*25;
-
 function createDb() {
 	return {
+		// exposed this method so that I can replace it when running tests
+		_getWeatherData(location) {
+			var url = getWeatherUrl(location);
+			return new Promise((resolve, reject) => {
+				get(url, (err, data) => {
+					if(err) { reject(err); }
+					else { resolve(data); }
+				});
+			});
+		},
+
 		getData() {
 			if(this.data)
 				return new Promise((resolve) => { resolve(this.data); });
 			if(!this.location)
-				return new Promise((resolve, reject) => { reject("The location hasnn't been set"); });
-			return getWeatherData(this.location)
+				return new Promise((resolve, reject) => { reject("The location hasn't been set"); });
+			return this._getWeatherData(this.location)
 			.then((data, err) => {
 				if(err) {
 					return new Promise((resolve, reject) => { reject(err); });
@@ -72,6 +73,8 @@ function createDb() {
 				var day;
 				var dayList;
 				var dayCount = 0;
+
+				// Sort the list of weather data into batches by day -> lists
 				do {
 					day = moment((data.list[0].dt + dayCount * secondsInADay) * 1000).format('dddd');
 					dayList = data.list.filter(datum => {
@@ -81,6 +84,7 @@ function createDb() {
 						lists.push(dayList);
 					dayCount++;
 				} while(dayList.length);
+
 				return new Promise((resolve) => { resolve(lists); });
 			});
 		},
